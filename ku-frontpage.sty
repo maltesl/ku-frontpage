@@ -87,16 +87,24 @@
 \def\DATE{Use \texttt{$\backslash$date$\lbrace \ldots \rbrace$}}
 \def\FRONTPAGEIMAGE{}
 
-%%% Some of the above methods already exists. We override these.
+%%% Make sure the commands we want to override exist.
+%%% For example, some classes (like scrbook) define \subtitle, others do not.
+\providecommand{\author}{}
+\providecommand{\title}{}
+\providecommand{\date}{}
+\providecommand{\assignment}{}
+\providecommand{\subtitle}{}
+\providecommand{\advisor}{}
+\providecommand{\frontpageimage}{}
+
+%%% Override commands
 \renewcommand{\author}[1]{\def\AUTHOR{#1}}
 \renewcommand{\title}[1]{\def\TITLE{#1}}
 \renewcommand{\date}[1]{\def\DATE{#1}}
-
-%%% The rest are defined.
-\newcommand{\assignment}[1]{\def\ASSIGNMENT{#1}}
-\newcommand{\subtitle}[1]{\def\SUBTITLE{#1}}
-\newcommand{\advisor}[1]{\def\ADVISOR{#1}}
-\newcommand{\frontpageimage}[1]{\def\FRONTPAGEIMAGE{#1}}
+\renewcommand{\assignment}[1]{\def\ASSIGNMENT{#1}}
+\renewcommand{\subtitle}[1]{\def\SUBTITLE{#1}}
+\renewcommand{\advisor}[1]{\def\ADVISOR{#1}}
+\renewcommand{\frontpageimage}[1]{\def\FRONTPAGEIMAGE{#1}}
 
 %%% Include hyperref for PDF attributes.
 \if@hyperref
