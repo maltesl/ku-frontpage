@@ -18,14 +18,14 @@ You can then include the package with for example:
 
 ##### Options when including the package
 
-Name                 | Available options             | Default     | Notes
----                  | ---                           | ---         | ---
-Layout               | `titlepage`, `large`, `small` | `titlepage` |
-Language             | `english`, `danish`           | `english`   | Will also include the `babel` package with the same option.
-Faculty              | `science`, `sund`, `ku`       | `science`   | Will change the logo and text at the top of the page accordingly.
-Hyperref?            | `hyperref`                    |             | Enables the hyperref package and sets default.
-Drop caps?           | `dropcaps`                    |             | Will allow you to include drop caps with `\lettrine{D}{rop caps}`.
-Submission statement | `submissionstatement`         |             | Adds the mandatory statment "This thesis has been submitted ..." for PhD theses
+Name                  | Available options             | Default     | Notes
+---                   | ---                           | ---         | ---
+Layout                | `titlepage`, `large`, `small` | `titlepage` |
+Language              | `english`, `danish`           | `english`   | Will also include the `babel` package with the same option.
+Faculty               | `science`, `sund`, `ku`       | `science`   | Will change the logo and text at the top of the page accordingly.
+Hyperref?             | `hyperref`                    |             | Enables the hyperref package and sets default.
+Drop caps?            | `dropcaps`                    |             | Will allow you to include drop caps with `\lettrine{D}{rop caps}`.
+Submission statement? | `submissionstatement`         |             | Adds the mandatory statment "This thesis has been submitted [...]" for PhD theses
 
 ##### Commands for changing the text
 
@@ -70,7 +70,7 @@ Replace `LinuxLibertineT-OsF` by the font of your choice.
 The file `example.tex` contains an example of a titlepage LaTeX file.
 
 ##### Large and small
----
+
 The large and small design can be used for everyday assignments handed in to your TA.
 
 ## Legal
@@ -78,12 +78,15 @@ The large and small design can be used for everyday assignments handed in to you
 The UCPH logo is protected by a European patent.
 For more information go to the official design guide: http://designguide.ku.dk/ku/om_design/varemaerkebeskyttelse/
 
-The template is distributed under the terms of the MIT License
-
 ---
 
 Copyright 2021 Mads Ohm Larsen
+
 Copyright 2021 Malte Leip <malte@leip.net>
+
+The package is distributed under the terms of the MIT License:
+
+---
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
