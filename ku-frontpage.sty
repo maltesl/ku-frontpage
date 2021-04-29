@@ -30,6 +30,10 @@
 \newif\if@sund                          \DeclareOption{sund}{\@sundtrue}
 \newif\if@ku                            \DeclareOption{ku}{\@kutrue}
 
+%%% Define 'if' for submission statement as required by PhD regulations.
+\newif\if@submissionstatement\@submissionstatementfalse
+\DeclareOption{submissionstatement}{\@submissionstatementtrue}
+
 %%% Define 'if''s for other things.
 \newif\if@hyperref                      \DeclareOption{hyperref}{\@hyperreftrue}
 \newif\if@dropcaps                      \DeclareOption{dropcaps}{\@dropcapstrue}
@@ -87,6 +91,31 @@
 \def\DATE{Use \texttt{$\backslash$date$\lbrace \ldots \rbrace$}}
 \def\FRONTPAGEIMAGE{}
 
+%%% Construct the correct submission statement.
+\if@submissionstatement
+  \def\SUBMISSIONSTATEMENT{
+    Use \texttt{$\backslash$submissionstatement$\lbrace \ldots \rbrace$}
+  }
+  \if@science
+    % See https://www.science.ku.dk/phd/rules/
+    % Section 5.1 of the rules, under "Formal requirements to the PhD thesis"
+    \def\SUBMISSIONSTATEMENT{%
+      This thesis has been submitted to
+      the PhD School of The Faculty of Science, University of Copenhagen%
+    }
+  \fi
+  \if@sund
+    % See https://healthsciences.ku.dk/phd/guidelines/
+    % Section 5.1 of the rules, under "Specific requirements"
+    \def\SUBMISSIONSTATEMENT{%
+      This thesis has been submitted to the Graduate School
+      of the Faculty of Health and Medical Sciences,\\ University of Copenhagen%
+    }
+  \fi
+\else
+  \def\SUBMISSIONSTATEMENT{}
+\fi
+
 %%% Make sure the commands we want to override exist.
 %%% For example, some classes (like scrbook) define \subtitle, others do not.
 \providecommand{\author}{}
@@ -96,6 +125,7 @@
 \providecommand{\subtitle}{}
 \providecommand{\advisor}{}
 \providecommand{\frontpageimage}{}
+\providecommand{\submissionstatement}{}
 
 %%% Override commands
 \renewcommand{\author}[1]{\def\AUTHOR{#1}}
@@ -105,6 +135,7 @@
 \renewcommand{\subtitle}[1]{\def\SUBTITLE{#1}}
 \renewcommand{\advisor}[1]{\def\ADVISOR{#1}}
 \renewcommand{\frontpageimage}[1]{\def\FRONTPAGEIMAGE{#1}}
+\renewcommand{\submissionstatement}[1]{\def\SUBMISSIONSTATEMENT{#1}}
 
 %%% Include hyperref for PDF attributes.
 \if@hyperref
@@ -185,10 +216,16 @@
       \noindent\fontsize{16pt}{18pt}\KUsemibold\AUTHOR
     \end{textblock}
 
-    \begin{textblock}{10}(1.14, 21.35)
-      \noindent\fontsize{11pt}{12pt}\KUsemibold\ADVISOR
-      \par\vspace{5mm}
-      \noindent\fontsize{11pt}{12pt}\KUsemibold\DATE
+    \begin{textblock}{10}(1.14, 20.5)
+      \begingroup
+        \fontsize{11pt}{12pt}\KUsemibold
+        \noindent\ADVISOR
+        \par\vspace{4mm}
+        \noindent\DATE
+      \endgroup
+      \par\vspace{4mm}
+      \fontsize{11pt}{12pt}
+      \noindent\SUBMISSIONSTATEMENT
     \end{textblock}
 
     \phantom{...}
