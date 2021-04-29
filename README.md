@@ -18,13 +18,14 @@ You can then include the package with for example:
 
 ##### Options when including the package
 
-Name       | Available options             | Default     | Notes
----        | ---                           | ---         | ---
-Layout     | `titlepage`, `large`, `small` | `titlepage` |
-Language   | `english`, `danish`           | `english`   | Will also include the `babel` package with the same option.
-Faculty    | `science`, `sund`, `ku`       | `science`   | Will change the logo and text at the top of the page accordingly.
-Hyperref?  | `hyperref`                    |             | Enables the hyperref package and sets default.
-Drop caps? | `dropcaps`                    |             | Will allow you to include drop caps with `\lettrine{D}{rop caps}`.
+Name                 | Available options             | Default     | Notes
+---                  | ---                           | ---         | ---
+Layout               | `titlepage`, `large`, `small` | `titlepage` |
+Language             | `english`, `danish`           | `english`   | Will also include the `babel` package with the same option.
+Faculty              | `science`, `sund`, `ku`       | `science`   | Will change the logo and text at the top of the page accordingly.
+Hyperref?            | `hyperref`                    |             | Enables the hyperref package and sets default.
+Drop caps?           | `dropcaps`                    |             | Will allow you to include drop caps with `\lettrine{D}{rop caps}`.
+Submission statement | `submissionstatement`         |             | Adds the mandatory statment "This thesis has been submitted ..." for PhD theses
 
 ##### Commands for changing the text
 
@@ -38,31 +39,39 @@ Name                         | Function                                         
 `\advisor{...}`              | Sets the advisor.                                                           | `\advisor{Advisor: Anders Andersen}`
 `\frontpageimage{...}`       | Sets the image for the titlepage                                            | `\frontpageimage{example.png}`
 `\kupdfsetup{...}{...}{...}` | Sets various information in the result PDF. Requires the `hyperref` option. | `\kupdfsetup{My title}{My subject}{My name}`
+`\submissionstatement{}`     | Sets custom text to be used at the bottom of the titlepage                  | `\submissionstatement{This thesis has been submitted elsewhere}`
 
 You can disable a command, by setting it to nothing, for example if you do not want a subtitle, you can use `\subtitle{}`.
 
+It will usually not be necessary to set the submission statement, as the
+statements required as of 2021-04 for SUND and SCIENCE are automatically
+set.
+
 Three colors are also defined as well as a setting for current color.
 These are `KU`, `KUsund`, and `KUscience`.
-Using `\KUCOLOR` will give you the current color, as specified by the selected faculty.
+Using `\KUCOLOR` will give you the KU color.
+
+## Fonts
+
+You may want to use a different font for the titlepage. In this case, you can
+use something like in the following example:
+```
+\begingroup
+  \fontfamily{LinuxLibertineT-OsF}\selectfont
+  \maketitle
+\endgroup
+```
+Replace `LinuxLibertineT-OsF` by the font of your choice.
 
 ## Examples
 
 ### Titlepage
-The file `example.tex` contains an example of a titlepage LaTeX file, which when compiled should look like this:
 
-![Titlepage](http://i.imgur.com/bWIDLbN.png)
+The file `example.tex` contains an example of a titlepage LaTeX file.
 
 ##### Large and small
 ---
 The large and small design can be used for everyday assignments handed in to your TA.
-
-*Large*
-
-![Large design](http://i.imgur.com/EgEkCy2.png)
-
-*Small*
-
-![Small design](http://i.imgur.com/oZ0ZQa6.png)
 
 ## Legal
 
@@ -74,6 +83,7 @@ The template is distributed under the terms of the MIT License
 ---
 
 Copyright 2021 Mads Ohm Larsen
+Copyright 2021 Malte Leip <malte@leip.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
