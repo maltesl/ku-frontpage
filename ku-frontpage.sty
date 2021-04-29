@@ -262,10 +262,15 @@
   \def\maketitle{
     \thispagestyle{plain}
     \AddToShipoutPicture*{\put(35,  83){\includegraphics*[scale=0.88]{logos/ku-logo}}}
-    \AddToShipoutPicture*{\put(79, 755){\large{\textbf{\TITLE}}}}
-    \AddToShipoutPicture*{\put(79, 733){\SUBTITLE}}
-    \AddToShipoutPicture*{\put(79, 715){\small{\emph{\AUTHOR}}}}
-    \AddToShipoutPicture*{\put(79, 702){\scriptsize{\DATE}}}
+    \begin{textblock}{10}(1.59, 2.32)
+      \noindent\large{\textbf{\TITLE}}
+      \par\vspace{3.2mm}
+      \noindent\normalsize{\SUBTITLE}
+      \par\vspace{2mm}
+      \noindent\small{\emph{\AUTHOR}}
+      \par\vspace{1.3mm}
+      \noindent\scriptsize{\DATE}
+    \end{textblock}
     \phantom{...}
     \vspace*{3.2cm}
     \noindent
@@ -276,10 +281,15 @@
   \def\maketitle{
     \thispagestyle{plain}
     \AddToShipoutPicture*{\put(-220, -310){\includegraphics*[scale=1.4]{logos/ku-logo}}}
-    \AddToShipoutPicture*{\put(79, 755){\LARGE{\textbf{\TITLE}}}}
-    \AddToShipoutPicture*{\put(79, 723){\Large{\SUBTITLE}}}
-    \AddToShipoutPicture*{\put(79, 695){\normalsize{\emph{\AUTHOR}}}}
-    \AddToShipoutPicture*{\put(79, 670){\footnotesize{\DATE}}}
+    \begin{textblock}{10}(1.59, 2.22)
+      \noindent\LARGE{\textbf{\TITLE}}
+      \par\vspace{4mm}
+      \noindent\Large{\SUBTITLE}
+      \par\vspace{5mm}
+      \noindent\normalsize{\emph{\AUTHOR}}
+      \par\vspace{5mm}
+      \noindent\footnotesize{\DATE}
+    \end{textblock}
     \phantom{...}
     \vspace*{5cm}
     \noindent
