@@ -67,7 +67,8 @@ Replace `LinuxLibertineT-OsF` by the font of your choice.
 
 ### Titlepage
 
-The file `example.tex` contains an example of a titlepage LaTeX file.
+This can be used for e.g. PhD theses.
+The file `example-titlepage.tex` contains an example.
 
 ##### Large and small
 
