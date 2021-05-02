@@ -112,23 +112,23 @@
 \TPGrid{12}{24}
 
 %%% Define custom methods for frontpage.
-\def\ASSIGNMENT{Use \texttt{$\backslash$assignment$\lbrace \ldots \rbrace$}}
-\def\AUTHOR{Use \texttt{$\backslash$author$\lbrace \ldots \rbrace$}}
-\def\TITLE{Use \texttt{$\backslash$title$\lbrace \ldots \rbrace$}}
-\def\SUBTITLE{Use \texttt{$\backslash$subtitle$\lbrace \ldots \rbrace$}}
-\def\ADVISOR{Use \texttt{$\backslash$advisor$\lbrace \ldots \rbrace$}}
-\def\DATE{Use \texttt{$\backslash$date$\lbrace \ldots \rbrace$}}
-\def\FRONTPAGEIMAGE{}
+\def\KU@ASSIGNMENT{Use \texttt{$\backslash$assignment$\lbrace \ldots \rbrace$}}
+\def\KU@AUTHOR{Use \texttt{$\backslash$author$\lbrace \ldots \rbrace$}}
+\def\KU@TITLE{Use \texttt{$\backslash$title$\lbrace \ldots \rbrace$}}
+\def\KU@SUBTITLE{Use \texttt{$\backslash$subtitle$\lbrace \ldots \rbrace$}}
+\def\KU@ADVISOR{Use \texttt{$\backslash$advisor$\lbrace \ldots \rbrace$}}
+\def\KU@DATE{Use \texttt{$\backslash$date$\lbrace \ldots \rbrace$}}
+\def\KU@FRONTPAGEIMAGE{}
 
 %%% Construct the correct submission statement.
 \if@submissionstatement
-  \def\SUBMISSIONSTATEMENT{
+  \def\KU@SUBMISSIONSTATEMENT{
     Use \texttt{$\backslash$submissionstatement$\lbrace \ldots \rbrace$}
   }
   \if@science
     % See https://www.science.ku.dk/phd/rules/
     % Section 5.1 of the rules, under "Formal requirements to the PhD thesis"
-    \def\SUBMISSIONSTATEMENT{%
+    \def\KU@SUBMISSIONSTATEMENT{%
       This thesis has been submitted to
       the PhD School of The Faculty of Science, University of Copenhagen%
     }
@@ -136,13 +136,13 @@
   \if@sund
     % See https://healthsciences.ku.dk/phd/guidelines/
     % Section 5.1 of the rules, under "Specific requirements"
-    \def\SUBMISSIONSTATEMENT{%
+    \def\KU@SUBMISSIONSTATEMENT{%
       This thesis has been submitted to the Graduate School
       of the Faculty of Health and Medical Sciences,\\ University of Copenhagen%
     }
   \fi
 \else
-  \def\SUBMISSIONSTATEMENT{}
+  \def\KU@SUBMISSIONSTATEMENT{}
 \fi
 
 %%% Make sure the commands we want to patch exist.
@@ -157,14 +157,14 @@
 \providecommand{\submissionstatement}{}
 
 %%% Patch commands
-\pretocmd{\author}{\def\AUTHOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch author command, but failed.}{}}
-\pretocmd{\title}{\def\TITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch title command, but failed.}{}}
-\pretocmd{\date}{\def\DATE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch date command, but failed.}{}}
-\pretocmd{\assignment}{\def\ASSIGNMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch assignment command, but failed.}{}}
-\pretocmd{\subtitle}{\def\SUBTITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch subtitle command, but failed.}{}}
-\pretocmd{\advisor}{\def\ADVISOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
-\pretocmd{\frontpageimage}{\def\FRONTPAGEIMAGE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch frontpageimage command, but failed.}{}}
-\pretocmd{\submissionstatement}{\def\SUBMISSIONSTATEMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch submissionstatement command, but failed.}{}}
+\pretocmd{\author}{\def\KU@AUTHOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch author command, but failed.}{}}
+\pretocmd{\title}{\def\KU@TITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch title command, but failed.}{}}
+\pretocmd{\date}{\def\KU@DATE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch date command, but failed.}{}}
+\pretocmd{\assignment}{\def\KU@ASSIGNMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch assignment command, but failed.}{}}
+\pretocmd{\subtitle}{\def\KU@SUBTITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch subtitle command, but failed.}{}}
+\pretocmd{\advisor}{\def\KU@ADVISOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
+\pretocmd{\frontpageimage}{\def\KU@FRONTPAGEIMAGE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch frontpageimage command, but failed.}{}}
+\pretocmd{\submissionstatement}{\def\KU@SUBMISSIONSTATEMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch submissionstatement command, but failed.}{}}
 
 %%% Include hyperref for PDF attributes.
 \if@hyperref
@@ -227,34 +227,34 @@
     \AddToShipoutPicture*{\put( 0, -35){\includegraphics*{logos/ku-logo}}}
     \AddToShipoutPicture*{\put(-8,   8){\includegraphics*{logos/\KUFACULTY-\KULANG}}}
 
-    \ifthenelse{\equal{\FRONTPAGEIMAGE}{}}{}{
+    \ifthenelse{\equal{\KU@FRONTPAGEIMAGE}{}}{}{
       \AddToShipoutPicture*{
-        \AtPageUpperLeft{\raisebox{-185mm}{\hspace{55pt}\includegraphics*[width=\textwidth, height=100mm, keepaspectratio]{\FRONTPAGEIMAGE}}}
+        \AtPageUpperLeft{\raisebox{-185mm}{\hspace{55pt}\includegraphics*[width=\textwidth, height=100mm, keepaspectratio]{\KU@FRONTPAGEIMAGE}}}
       }
     }
 
     \begin{textblock}{10}(1.14, 15.9)
-      \noindent\fontsize{16pt}{18pt}\KUsemibold\ASSIGNMENT
+      \noindent\fontsize{16pt}{18pt}\KUsemibold\KU@ASSIGNMENT
     \end{textblock}
 
     \begin{textblock}{10}(1.14, 16.9)
-      \noindent\fontsize{28pt}{30pt}\KUsemibold\TITLE
+      \noindent\fontsize{28pt}{30pt}\KUsemibold\KU@TITLE
       \par\vspace{2mm}
-      \noindent\fontsize{14pt}{16pt}\KUsemibold\SUBTITLE
+      \noindent\fontsize{14pt}{16pt}\KUsemibold\KU@SUBTITLE
       \par\vspace{4mm}
-      \noindent\fontsize{16pt}{18pt}\KUsemibold\AUTHOR
+      \noindent\fontsize{16pt}{18pt}\KUsemibold\KU@AUTHOR
     \end{textblock}
 
     \begin{textblock}{10}(1.14, 20.5)
       \begingroup
         \fontsize{11pt}{12pt}\KUsemibold
-        \noindent\ADVISOR
+        \noindent\KU@ADVISOR
         \par\vspace{4mm}
-        \noindent\DATE
+        \noindent\KU@DATE
       \endgroup
       \par\vspace{4mm}
       \fontsize{11pt}{12pt}
-      \noindent\SUBMISSIONSTATEMENT
+      \noindent\KU@SUBMISSIONSTATEMENT
     \end{textblock}
 
     \phantom{...}
@@ -268,13 +268,13 @@
     \thispagestyle{plain}
     \AddToShipoutPicture*{\put(35,  83){\includegraphics*[scale=0.88]{logos/ku-logo}}}
     \begin{textblock}{10}(1.59, 2.32)
-      \noindent\large{\textbf{\TITLE}}
+      \noindent\large{\textbf{\KU@TITLE}}
       \par\vspace{3.2mm}
-      \noindent\normalsize{\SUBTITLE}
+      \noindent\normalsize{\KU@SUBTITLE}
       \par\vspace{2mm}
-      \noindent\small{\emph{\AUTHOR}}
+      \noindent\small{\emph{\KU@AUTHOR}}
       \par\vspace{1.3mm}
-      \noindent\scriptsize{\DATE}
+      \noindent\scriptsize{\KU@DATE}
     \end{textblock}
     \phantom{...}
     \vspace*{3.2cm}
@@ -287,13 +287,13 @@
     \thispagestyle{plain}
     \AddToShipoutPicture*{\put(-220, -310){\includegraphics*[scale=1.4]{logos/ku-logo}}}
     \begin{textblock}{10}(1.59, 2.22)
-      \noindent\LARGE{\textbf{\TITLE}}
+      \noindent\LARGE{\textbf{\KU@TITLE}}
       \par\vspace{4mm}
-      \noindent\Large{\SUBTITLE}
+      \noindent\Large{\KU@SUBTITLE}
       \par\vspace{5mm}
-      \noindent\normalsize{\emph{\AUTHOR}}
+      \noindent\normalsize{\emph{\KU@AUTHOR}}
       \par\vspace{5mm}
-      \noindent\footnotesize{\DATE}
+      \noindent\footnotesize{\KU@DATE}
     \end{textblock}
     \phantom{...}
     \vspace*{5cm}
