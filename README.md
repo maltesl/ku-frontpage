@@ -21,7 +21,7 @@ You can then include the package with for example:
 Name                  | Available options             | Default     | Notes
 ---                   | ---                           | ---         | ---
 Layout                | `titlepage`, `large`, `small` | `titlepage` |
-Language              | `english`, `danish`           | `english`   | Will also include the `babel` package with the same option.
+Language              | `english`, `danish`           | `english`   |
 Faculty               | `science`, `sund`, `ku`       | `science`   | Will change the logo and text at the top of the page accordingly.
 Hyperref?             | `hyperref`                    |             | Enables the hyperref package and sets default.
 Drop caps?            | `dropcaps`                    |             | Will allow you to include drop caps with `\lettrine{D}{rop caps}`.

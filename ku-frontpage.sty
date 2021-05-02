@@ -46,8 +46,8 @@
 \newif\if@kularge\@kulargefalse         \DeclareOption{large}{\@kulargetrue}
 
 %%% Define 'if''s for language.
-\newif\if@kuenglish                     \DeclareOption{english}{\@kuenglishtrue \PassOptionsToPackage{\CurrentOption}{babel}}
-\newif\if@kudanish                      \DeclareOption{danish}{\@kudanishtrue   \PassOptionsToPackage{\CurrentOption}{babel}}
+\newif\if@kuenglish                     \DeclareOption{english}{\@kuenglishtrue}
+\newif\if@kudanish                      \DeclareOption{danish}{\@kudanishtrue}
 
 %%% Define 'if''s for faculties.
 \newif\if@science                       \DeclareOption{science}{\@sciencetrue}
@@ -88,7 +88,6 @@
 \if@ku          \def\KUFACULTY{ku}      \fi
 
 %%% Some packages are required for this package.
-\RequirePackage{babel}
 \RequirePackage{eso-pic}
 \RequirePackage{graphicx}
 \RequirePackage{ifthen}
