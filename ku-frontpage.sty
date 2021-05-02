@@ -92,6 +92,7 @@
 \RequirePackage{eso-pic}
 \RequirePackage{graphicx}
 \RequirePackage{ifthen}
+\RequirePackage{etoolbox}
 
 \definecolor{KU}{HTML}{901A1E}
 \definecolor{KUscience}{HTML}{46743C}
@@ -139,26 +140,26 @@
   \def\SUBMISSIONSTATEMENT{}
 \fi
 
-%%% Make sure the commands we want to override exist.
+%%% Make sure the commands we want to patch exist.
 %%% For example, some classes (like scrbook) define \subtitle, others do not.
-\providecommand{\author}{}
-\providecommand{\title}{}
-\providecommand{\date}{}
-\providecommand{\assignment}{}
-\providecommand{\subtitle}{}
-\providecommand{\advisor}{}
-\providecommand{\frontpageimage}{}
+\providecommand{\author}[1]{}
+\providecommand{\title}[1]{}
+\providecommand{\date}[1]{}
+\providecommand{\assignment}[1]{}
+\providecommand{\subtitle}[1]{}
+\providecommand{\advisor}[1]{}
+\providecommand{\frontpageimage}[1]{}
 \providecommand{\submissionstatement}{}
 
-%%% Override commands
-\renewcommand{\author}[1]{\def\AUTHOR{#1}}
-\renewcommand{\title}[1]{\def\TITLE{#1}}
-\renewcommand{\date}[1]{\def\DATE{#1}}
-\renewcommand{\assignment}[1]{\def\ASSIGNMENT{#1}}
-\renewcommand{\subtitle}[1]{\def\SUBTITLE{#1}}
-\renewcommand{\advisor}[1]{\def\ADVISOR{#1}}
-\renewcommand{\frontpageimage}[1]{\def\FRONTPAGEIMAGE{#1}}
-\renewcommand{\submissionstatement}[1]{\def\SUBMISSIONSTATEMENT{#1}}
+%%% Patch commands
+\pretocmd{\author}{\def\AUTHOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch author command, but failed.}{}}
+\pretocmd{\title}{\def\TITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch title command, but failed.}{}}
+\pretocmd{\date}{\def\DATE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch date command, but failed.}{}}
+\pretocmd{\assignment}{\def\ASSIGNMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch assignment command, but failed.}{}}
+\pretocmd{\subtitle}{\def\SUBTITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch subtitle command, but failed.}{}}
+\pretocmd{\advisor}{\def\ADVISOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
+\pretocmd{\frontpageimage}{\def\FRONTPAGEIMAGE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch frontpageimage command, but failed.}{}}
+\pretocmd{\submissionstatement}{\def\SUBMISSIONSTATEMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch submissionstatement command, but failed.}{}}
 
 %%% Include hyperref for PDF attributes.
 \if@hyperref
