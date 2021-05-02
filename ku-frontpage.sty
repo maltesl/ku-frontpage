@@ -88,11 +88,18 @@
 \if@ku          \def\KUFACULTY{ku}      \fi
 
 %%% Some packages are required for this package.
+% Absolutely positioned graphics - LPPL 1.2
 \RequirePackage{eso-pic}
+% Absolutely positioned text - LPPL 1.3
+\RequirePackage[absolute]{textpos}
+% Graphics stuff, defining colors, etc. - LPPL 1.3c
 \RequirePackage{graphicx}
+% For \ifthenelse - LPPL 1.3c
 \RequirePackage{ifthen}
+% For patching commands - LPPL 1.3c
 \RequirePackage{etoolbox}
 
+%%% Define colors
 \definecolor{KU}{HTML}{901A1E}
 \definecolor{KUscience}{HTML}{46743C}
 \definecolor{KUsund}{HTML}{2A216A}
@@ -102,7 +109,6 @@
 \def\KUCOLOR{KU}
 
 %%% Define the page to have 12 horizontal modules and 24 vertical modules.
-\RequirePackage[absolute]{textpos}
 \TPGrid{12}{24}
 
 %%% Define custom methods for frontpage.
@@ -162,7 +168,7 @@
 
 %%% Include hyperref for PDF attributes.
 \if@hyperref
-  \RequirePackage{hyperref}
+  \RequirePackage{hyperref} % LPPL 1.3
   \newcommand{\kupdfsetup}[3]{
     \hypersetup{
       pdftitle={#1},
@@ -178,7 +184,7 @@
 
 %%% Define drop caps
 \if@dropcaps
-  \RequirePackage{lettrine}
+  \RequirePackage{lettrine} % LPPL 1.3
 
   \renewcommand\LettrineFontHook{\color{\KUCOLOR}}
   \renewcommand{\DefaultOptionsFile}{NoFileOnPurposeHack.cfg}
