@@ -96,8 +96,8 @@
 \RequirePackage{graphicx}
 % For \ifthenelse - LPPL 1.3c
 \RequirePackage{ifthen}
-% For patching commands - LPPL 1.3c
-\RequirePackage{etoolbox}
+% For patching commands - LPPL 1.3
+\RequirePackage{xpatch}
 
 %%% Define colors
 \definecolor{KU}{HTML}{901A1E}
@@ -157,14 +157,14 @@
 \providecommand{\submissionstatement}[1]{}
 
 %%% Patch commands
-\pretocmd{\author}{\def\KU@AUTHOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch author command, but failed.}{}}
-\pretocmd{\title}{\def\KU@TITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch title command, but failed.}{}}
-\pretocmd{\date}{\def\KU@DATE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch date command, but failed.}{}}
-\pretocmd{\assignment}{\def\KU@ASSIGNMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch assignment command, but failed.}{}}
-\pretocmd{\subtitle}{\def\KU@SUBTITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch subtitle command, but failed.}{}}
-\pretocmd{\advisor}{\def\KU@ADVISOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
-\pretocmd{\frontpageimage}{\def\KU@FRONTPAGEIMAGE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch frontpageimage command, but failed.}{}}
-\pretocmd{\submissionstatement}{\def\KU@SUBMISSIONSTATEMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch submissionstatement command, but failed.}{}}
+\xpretocmd{\author}{\def\KU@AUTHOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch author command, but failed.}{}}
+\xpretocmd{\title}{\def\KU@TITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch title command, but failed.}{}}
+\xpretocmd{\date}{\def\KU@DATE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch date command, but failed.}{}}
+\xpretocmd{\assignment}{\def\KU@ASSIGNMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch assignment command, but failed.}{}}
+\xpretocmd{\subtitle}{\def\KU@SUBTITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch subtitle command, but failed.}{}}
+\xpretocmd{\advisor}{\def\KU@ADVISOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
+\xpretocmd{\frontpageimage}{\def\KU@FRONTPAGEIMAGE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch frontpageimage command, but failed.}{}}
+\xpretocmd{\submissionstatement}{\def\KU@SUBMISSIONSTATEMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch submissionstatement command, but failed.}{}}
 
 %%% Include hyperref for PDF attributes.
 \if@hyperref
