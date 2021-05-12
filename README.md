@@ -77,7 +77,7 @@ The large and small design can be used for everyday assignments handed in to you
 ## Legal
 
 The UCPH logo is protected by a European patent.
-The files in the logos folder can be freely distributed as part of the ku-frontpage project by current/former students at UCPH in connection with UCPH projects.
+The files in the logos folder can be freely distributed and used as part of the ku-frontpage project by current/former students at UCPH in connection with UCPH projects.
 
 For more information go to [the official design guide](http://designguide.ku.dk/om_design/varemaerkebeskyttelse/).
 
