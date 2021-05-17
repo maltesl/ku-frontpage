@@ -18,14 +18,14 @@ You can then include the package with for example:
 
 ##### Options when including the package
 
-Name                  | Available options             | Default     | Notes
----                   | ---                           | ---         | ---
-Layout                | `titlepage`, `large`, `small` | `titlepage` |
-Language              | `english`, `danish`           | `english`   |
-Faculty               | `science`, `sund`, `ku`       | `science`   | Will change the logo and text at the top of the page accordingly.
-Hyperref?             | `hyperref`                    |             | Enables the hyperref package and sets default.
-Drop caps?            | `dropcaps`                    |             | Will allow you to include drop caps with `\lettrine{D}{rop caps}`.
-Submission statement? | `submissionstatement`         |             | Adds the mandatory statment "This thesis has been submitted [...]" for PhD theses
+Name                  | Available options               | Default     | Notes
+---                   | ---                             | ---         | ---
+Layout                | `titlepage`, `large`, `small`   | `titlepage` |
+Language              | `english`, `danish`             | `english`   |
+Faculty               | `science`, `sund`, `samf`, `ku` | `science`   | Will change the logo and text at the top of the page accordingly.
+Hyperref?             | `hyperref`                      |             | Enables the hyperref package and sets default.
+Drop caps?            | `dropcaps`                      |             | Will allow you to include drop caps with `\lettrine{D}{rop caps}`.
+Submission statement? | `submissionstatement`           |             | Adds the mandatory statment "This thesis has been submitted [...]" for PhD theses
 
 ##### Commands for changing the text
 
