@@ -2,7 +2,7 @@
 
 A LaTeX package for use at University of Copenhagen.
 
-Intended to create a titlepage that resembles as close as possible the official design for Master projects and PhD theses.
+Intended to create a titlepage that resembles as closely as possible the official design for Master projects and PhD theses.
 The Microsoft Word templates can be found at https://designguide.ku.dk/.
 
 ## Installation
@@ -43,7 +43,7 @@ Name                         | Function                                         
 You can disable a command, by setting it to nothing, for example if you do not want a subtitle, you can use `\subtitle{}`.
 
 For SUND and SCIENCE the submission statements required as of 2021-04 are
-automatically set.
+automatically set, but you can still override them with `\submissionstatement{}`.
 
 Three colors are also defined as well as a setting for current color.
 These are `KU`, `KUsund`, and `KUscience`.
@@ -63,14 +63,7 @@ Replace `LinuxLibertineT-OsF` by the font of your choice.
 
 ## Examples
 
-### Titlepage
-
-This can be used for e.g. PhD theses.
-The file `example-titlepage.tex` contains an example.
-
-##### Large and small
-
-The large and small design can be used for everyday assignments handed in to your TA.
+The file `example.tex` contains an example.
 
 ## Legal
 
