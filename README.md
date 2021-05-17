@@ -2,8 +2,8 @@
 
 A LaTeX package for use at University of Copenhagen.
 
-Using the `titlepage` option will resemble as close as possible the official design for Master projects and PhD theses.
-The Microsoft Word templates can be found at http://designguide.ku.dk/.
+Intended to create a titlepage that resembles as close as possible the official design for Master projects and PhD theses.
+The Microsoft Word templates can be found at https://designguide.ku.dk/.
 
 ## Installation
 
@@ -11,7 +11,7 @@ Just copy the `ku-frontpage.sty` and the `logos` folder into your current workin
 You can then include the package with for example:
 
 ```latex
-\usepackage[english, science, titlepage]{ku-frontpage}
+\usepackage[english, science]{ku-frontpage}
 ```
 
 ## Options
@@ -20,7 +20,6 @@ You can then include the package with for example:
 
 Name                  | Available options               | Default     | Notes
 ---                   | ---                             | ---         | ---
-Layout                | `titlepage`, `large`, `small`   | `titlepage` |
 Language              | `english`, `danish`             | `english`   |
 Faculty               | `science`, `sund`, `samf`, `ku` | `science`   | Will change the logo and text at the top of the page accordingly.
 Hyperref?             | `hyperref`                      |             | Enables the hyperref package and sets default.
@@ -43,9 +42,8 @@ Name                         | Function                                         
 
 You can disable a command, by setting it to nothing, for example if you do not want a subtitle, you can use `\subtitle{}`.
 
-It will usually not be necessary to set the submission statement, as the
-statements required as of 2021-04 for SUND and SCIENCE are automatically
-set.
+For SUND and SCIENCE the submission statements required as of 2021-04 are
+automatically set.
 
 Three colors are also defined as well as a setting for current color.
 These are `KU`, `KUsund`, and `KUscience`.

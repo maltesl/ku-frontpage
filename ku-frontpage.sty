@@ -36,14 +36,9 @@
 % (http://www.math.ku.dk/~m00cha/), however translated all call to their
 % English equivalant and included newer logos.
 %
-% Layout of the titlepage variant inspired by Joshua Hunt's PhD thesis.
+% Layout inspired by Joshua Hunt's PhD thesis.
 %------------------------------------------------------------------------------
 \ProvidesPackage{ku-frontpage}[2018/12/06 v0.5 Frontpages with University of Copenhagen logos]
-
-%%% Define 'if''s for style.
-\newif\if@kutitlepage\@kutitlepagefalse \DeclareOption{titlepage}{\@kutitlepagetrue}
-\newif\if@kusmall\@kusmallfalse         \DeclareOption{small}{\@kusmalltrue}
-\newif\if@kularge\@kulargefalse         \DeclareOption{large}{\@kulargetrue}
 
 %%% Define 'if''s for language.
 \newif\if@kuenglish                     \DeclareOption{english}{\@kuenglishtrue}
@@ -69,7 +64,6 @@
 }
 
 %%% Define standard values.
-\ExecuteOptions{titlepage}
 \ExecuteOptions{english}
 \ExecuteOptions{science}
 
@@ -77,10 +71,6 @@
 \ProcessOptions\relax
 
 %%% Parse options.
-\if@kutitlepage \def\KUSTYLE{titlepage} \fi
-\if@kusmall     \def\KUSTYLE{small}     \fi
-\if@kularge     \def\KUSTYLE{large}     \fi
-
 \if@kuenglish   \def\KULANG{english}    \fi
 \if@kudanish    \def\KULANG{danish}     \fi
 
@@ -223,86 +213,46 @@
   \LettrineOptionsFor{Z}{loversize=-0.05,lhang= 0.00,findent= 0.050\LettrineWidth,nindent= 0.55\LettrineWidth}
 \fi
 
-%%% Define the three types of frontpage
-\if@kutitlepage
-  \def\KUbold{\fontseries{bx}\selectfont}
-  \def\KUsemibold{\fontseries{sb}\selectfont}
+%%% Construct the titlepage
+\def\KUbold{\fontseries{bx}\selectfont}
+\def\KUsemibold{\fontseries{sb}\selectfont}
 
-  \def\maketitle{
-    \thispagestyle{empty}
-    \AddToShipoutPicture*{\put( 0, -35){\includegraphics*{logos/ku-logo}}}
-    \AddToShipoutPicture*{\put(-8,   8){\includegraphics*{logos/\KUFACULTY-\KULANG}}}
+\def\maketitle{
+  \thispagestyle{empty}
+  \AddToShipoutPicture*{\put( 0, -35){\includegraphics*{logos/ku-logo}}}
+  \AddToShipoutPicture*{\put(-8,   8){\includegraphics*{logos/\KUFACULTY-\KULANG}}}
 
-    \ifthenelse{\equal{\KU@FRONTPAGEIMAGE}{}}{}{
-      \AddToShipoutPicture*{
-        \AtPageUpperLeft{\raisebox{-185mm}{\hspace{55pt}\includegraphics*[width=\textwidth, height=100mm, keepaspectratio]{\KU@FRONTPAGEIMAGE}}}
-      }
+  \ifthenelse{\equal{\KU@FRONTPAGEIMAGE}{}}{}{
+    \AddToShipoutPicture*{
+      \AtPageUpperLeft{\raisebox{-185mm}{\hspace{55pt}\includegraphics*[width=\textwidth, height=100mm, keepaspectratio]{\KU@FRONTPAGEIMAGE}}}
     }
-
-    \begin{textblock}{10}(1.14, 15.9)
-      \noindent\fontsize{16pt}{18pt}\KUsemibold\KU@ASSIGNMENT
-    \end{textblock}
-
-    \begin{textblock}{10}(1.14, 16.9)
-      \noindent\fontsize{28pt}{30pt}\KUsemibold\KU@TITLE
-      \par\vspace{2mm}
-      \noindent\fontsize{14pt}{16pt}\KUsemibold\KU@SUBTITLE
-      \par\vspace{4mm}
-      \noindent\fontsize{16pt}{18pt}\KUsemibold\KU@AUTHOR
-    \end{textblock}
-
-    \begin{textblock}{10}(1.14, 20.5)
-      \begingroup
-        \fontsize{11pt}{12pt}\KUsemibold
-        \noindent\KU@ADVISOR
-        \par\vspace{4mm}
-        \noindent\KU@DATE
-      \endgroup
-      \par\vspace{4mm}
-      \fontsize{11pt}{12pt}
-      \noindent\KU@SUBMISSIONSTATEMENT
-    \end{textblock}
-
-    \phantom{...}
-    \newpage
-    \noindent
   }
-\fi
 
-\if@kusmall
-  \def\maketitle{
-    \thispagestyle{plain}
-    \AddToShipoutPicture*{\put(35,  83){\includegraphics*[scale=0.88]{logos/ku-logo}}}
-    \begin{textblock}{10}(1.59, 2.32)
-      \noindent\large{\textbf{\KU@TITLE}}
-      \par\vspace{3.2mm}
-      \noindent\normalsize{\KU@SUBTITLE}
-      \par\vspace{2mm}
-      \noindent\small{\emph{\KU@AUTHOR}}
-      \par\vspace{1.3mm}
-      \noindent\scriptsize{\KU@DATE}
-    \end{textblock}
-    \phantom{...}
-    \vspace*{3.2cm}
-    \noindent
-  }
-\fi
+  \begin{textblock}{10}(1.14, 15.9)
+    \noindent\fontsize{16pt}{18pt}\KUsemibold\KU@ASSIGNMENT
+  \end{textblock}
 
-\if@kularge
-  \def\maketitle{
-    \thispagestyle{plain}
-    \AddToShipoutPicture*{\put(-220, -310){\includegraphics*[scale=1.4]{logos/ku-logo}}}
-    \begin{textblock}{10}(1.59, 2.22)
-      \noindent\LARGE{\textbf{\KU@TITLE}}
+  \begin{textblock}{10}(1.14, 16.9)
+    \noindent\fontsize{28pt}{30pt}\KUsemibold\KU@TITLE
+    \par\vspace{2mm}
+    \noindent\fontsize{14pt}{16pt}\KUsemibold\KU@SUBTITLE
+    \par\vspace{4mm}
+    \noindent\fontsize{16pt}{18pt}\KUsemibold\KU@AUTHOR
+  \end{textblock}
+
+  \begin{textblock}{10}(1.14, 20.5)
+    \begingroup
+      \fontsize{11pt}{12pt}\KUsemibold
+      \noindent\KU@ADVISOR
       \par\vspace{4mm}
-      \noindent\Large{\KU@SUBTITLE}
-      \par\vspace{5mm}
-      \noindent\normalsize{\emph{\KU@AUTHOR}}
-      \par\vspace{5mm}
-      \noindent\footnotesize{\KU@DATE}
-    \end{textblock}
-    \phantom{...}
-    \vspace*{5cm}
-    \noindent
-  }
-\fi
+      \noindent\KU@DATE
+    \endgroup
+    \par\vspace{4mm}
+    \fontsize{11pt}{12pt}
+    \noindent\KU@SUBMISSIONSTATEMENT
+  \end{textblock}
+
+  \phantom{...}
+  \newpage
+  \noindent
+}
