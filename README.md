@@ -55,7 +55,7 @@ You may want to use a different font for the titlepage. In this case, you can
 use something like in the following example:
 ```
 \begingroup
-  \fontfamily{LinuxLibertineT-OsF}\selectfont
+  \fontencoding{T1}\fontfamily{LinuxLibertineT-OsF}\selectfont
   \maketitle
 \endgroup
 ```
