@@ -58,9 +58,11 @@ Using `\KUCOLOR` will give you the KU color.
 `ku-frontpage` patches commands such as `\author` to extract the information
 needed for the frontpage. This fails for some combinations of LaTeX
 distributions and document classes (for example the `memoir` class). If
-patching fails, one should instead use commands prefixed with `frontpage`, so
-for example `\frontpageauthor` instead of `\author`. A warning message in the
-compilation log will point out if this is the case.
+patching fails, a warning message in the compilation log will point this out as
+well as what to do; An alternative command to set e.g. the author for the
+frontpage will be provided, prefixed with `frontpage`, so for example
+`\frontpageauthor`. You will still need to use the usual `\author` command
+provided by the document class.
 
 ## Fonts
 
