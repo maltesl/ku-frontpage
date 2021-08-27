@@ -153,11 +153,12 @@
 \providecommand{\submissionstatement}[1]{}
 
 %%% Patch commands
-\xpretocmd{\author}{\def\KU@AUTHOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch author command, but failed.}{}}
-\xpretocmd{\title}{\def\KU@TITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch title command, but failed.}{}}
-\xpretocmd{\date}{\def\KU@DATE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch date command, but failed.}{}}
+\xpretocmd{\author}{\def\KU@AUTHOR{#1}}{}{\PackageWarning{ku-frontpage}{Tried to patch the 'author' command, but failed. Instead you will have to use the 'frontpageauthor' command to set the author for the frontpage, and the 'author' command to set the author for the rest of the document. See the readme for more information.}{} \newcommand{\frontpageauthor}[1]{\def\KU@AUTHOR{#1}} \def\KU@AUTHOR{Use \texttt{$\backslash$frontpageauthor$\lbrace \ldots \rbrace$}} }
+\xpretocmd{\title}{\def\KU@TITLE{#1}}{}{\PackageWarning{ku-frontpage}{Tried to patch the 'title' command, but failed. Instead you will have to use the 'frontpagetitle' command to set the title for the frontpage, and the 'title' command to set the title for the rest of the document. See the readme for more information.}{} \newcommand{\frontpagetitle}[1]{\def\KU@TITLE{#1}} \def\KU@TITLE{Use \texttt{$\backslash$frontpagetitle$\lbrace \ldots \rbrace$}} }
+\xpretocmd{\date}{\def\KU@DATE{#1}}{}{\PackageWarning{ku-frontpage}{Tried to patch the 'date' command, but failed. Instead you will have to use the 'frontpagedate' command to set the date for the frontpage, and the 'date' command to set the date for the rest of the document. See the readme for more information.}{} \newcommand{\frontpagedate}[1]{\def\KU@DATE{#1}} \def\KU@DATE{Use \texttt{$\backslash$frontpagedate$\lbrace \ldots \rbrace$}} }
+\xpretocmd{\subtitle}{\def\KU@SUBTITLE{#1}}{}{\PackageWarning{ku-frontpage}{Tried to patch the 'subtitle' command, but failed. Instead you will have to use the 'frontpagesubtitle' command to set the title for the frontpage, and the 'subtitle' command to set the subtitle for the rest of the document. See the readme for more information.}{} \newcommand{\frontpagesubtitle}[1]{\def\KU@SUBTITLE{#1}} \def\KU@SUBTITLE{Use \texttt{$\backslash$frontpagesubtitle$\lbrace \ldots \rbrace$}} }
+
 \xpretocmd{\assignment}{\def\KU@ASSIGNMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch assignment command, but failed.}{}}
-\xpretocmd{\subtitle}{\def\KU@SUBTITLE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch subtitle command, but failed.}{}}
 \xpretocmd{\advisor}{\def\KU@ADVISOR{#1}}{}{\PackageError{ku-frontpage}{Tried to patch advisor command, but failed.}{}}
 \xpretocmd{\frontpageimage}{\def\KU@FRONTPAGEIMAGE{#1}}{}{\PackageError{ku-frontpage}{Tried to patch frontpageimage command, but failed.}{}}
 \xpretocmd{\submissionstatement}{\def\KU@SUBMISSIONSTATEMENT{#1}}{}{\PackageError{ku-frontpage}{Tried to patch submissionstatement command, but failed.}{}}

@@ -28,17 +28,21 @@ Submission statement? | `submissionstatement`           |             | Adds the
 
 ##### Commands for changing the text
 
-Name                         | Function                                                                    | Example
----                          | ---                                                                         | ---
-`\assignment{...}`           | Sets the assignment type.                                                   | `\assignment{PhD thesis}`
-`\author{...}`               | Sets the author.                                                            | `\author{Mads Ohm Larsen}`
-`\title{...}`                | Sets the title of the document.                                             | `\title{Quasicrystal Simulation}`
-`\subtitle{...}`             | Sets the subtitle of the document.                                          | `\subtitle{An investigation}`
-`\date{...}`                 | Sets the date of the document.                                              | `\date{Handed in: \today}`
-`\advisor{...}`              | Sets the advisor.                                                           | `\advisor{Advisor: Anders Andersen}`
-`\frontpageimage{...}`       | Sets the image for the titlepage                                            | `\frontpageimage{example.png}`
-`\kupdfsetup{...}{...}{...}` | Sets various information in the result PDF. Requires the `hyperref` option. | `\kupdfsetup{My title}{My subject}{My name}`
-`\submissionstatement{}`     | Sets custom text to be used at the bottom of the titlepage                  | `\submissionstatement{This thesis has been submitted elsewhere}`
+Name                         | Function                                                                                      | Example
+---                          | ---                                                                                           | ---
+`\author{...}`               | Sets the author.                                                                              | `\author{Mads Ohm Larsen}`
+`\title{...}`                | Sets the title of the document.                                                               | `\title{Quasicrystal Simulation}`
+`\subtitle{...}`             | Sets the subtitle of the document.                                                            | `\subtitle{An investigation}`
+`\date{...}`                 | Sets the date of the document.                                                                | `\date{Handed in: \today}`
+`\frontpageauthor{...}`      | Sets the author for the frontpage, only needed as a workaround, see known issues below.       | `\frontpageauthor{Mads Ohm Larsen}`
+`\frontpagetitle{...}`       | Sets the title for the frontpage, only needed as a workaround, see known issues below.        | `\frontpagetitle{Quasicrystal Simulation}`
+`\frontpagesubtitle{...}`    | Sets the subtitle for the frontpage, only needed as a workaround, see known issues below.     | `\frontpagesubtitle{An investigation}`
+`\frontpagedate{...}`        | Sets the date for the frontpage, only needed as a workaround, see known issues below.         | `\frontpagedate{Handed in: \today}`
+`\assignment{...}`           | Sets the assignment type.                                                                     | `\assignment{PhD thesis}`
+`\advisor{...}`              | Sets the advisor.                                                                             | `\advisor{Advisor: Anders Andersen}`
+`\frontpageimage{...}`       | Sets the image for the titlepage                                                              | `\frontpageimage{example.png}`
+`\kupdfsetup{...}{...}{...}` | Sets various information in the result PDF. Requires the `hyperref` option.                   | `\kupdfsetup{My title}{My subject}{My name}`
+`\submissionstatement{}`     | Sets custom text to be used at the bottom of the titlepage                                    | `\submissionstatement{This thesis has been submitted elsewhere}`
 
 You can disable a command, by setting it to nothing, for example if you do not want a subtitle, you can use `\subtitle{}`.
 
@@ -48,6 +52,15 @@ automatically set, but you can still override them with `\submissionstatement{}`
 Three colors are also defined as well as a setting for current color.
 These are `KU`, `KUsund`, and `KUscience`.
 Using `\KUCOLOR` will give you the KU color.
+
+## Known issues
+
+`ku-frontpage` patches commands such as `\author` to extract the information
+needed for the frontpage. This fails for some combinations of LaTeX
+distributions and document classes (for example the `memoir` class). If
+patching fails, one should instead use commands prefixed with `frontpage`, so
+for example `\frontpageauthor` instead of `\author`. A warning message in the
+compilation log will point out if this is the case.
 
 ## Fonts
 
